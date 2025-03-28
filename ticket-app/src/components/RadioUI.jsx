@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
-export default function RadioBatteryUI() {
+export default function RadioUI() {
   const [screen, setScreen] = useState("home");
-  const [radioId, setRadioId] = useState("");
-  const [batteryId, setBatteryId] = useState("");
+  const [radioSerial, setRadioSerial] = useState("");
   const [status, setStatus] = useState(null);
 
   const handleSwapConfirm = () => {
-    if (radioId && batteryId) {
+    if (RadioSerial) {
       setStatus("success");
       setTimeout(() => setScreen("home"), 2000);
     } else {
@@ -56,8 +54,8 @@ export default function RadioBatteryUI() {
               <h1 className="text-xl font-bold mb-4">Battery Swap</h1>
               <Input
                 placeholder="Scan or enter Radio ID"
-                value={radioId}
-                onChange={(e) => setRadioId(e.target.value)}
+                value={radioSerial}
+                onChange={(e) => setRadioSerial(e.target.value)}
                 className="mb-4"
               />
               <Input
